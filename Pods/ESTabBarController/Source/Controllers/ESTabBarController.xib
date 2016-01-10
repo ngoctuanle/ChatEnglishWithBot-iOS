@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ESTabBarController">
+            <connections>
+                <outlet property="buttonsContainer" destination="rnh-Bk-CM2" id="vDs-dD-sEZ"/>
+                <outlet property="buttonsContainerHeightConstraint" destination="zkk-B5-Edr" id="fHM-Ec-idA"/>
+                <outlet property="controllersContainer" destination="0q1-KL-VrI" id="rzn-Ao-FnZ"/>
+                <outlet property="separatorLine" destination="TvY-3J-0zk" id="mc9-OU-J8U"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a7z-tr-fce">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnh-Bk-CM2" userLabel="Buttons container">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="zkk-B5-Edr"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0q1-KL-VrI" userLabel="Controllers container">
+                            <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TvY-3J-0zk" userLabel="Separator line">
+                            <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="0q1-KL-VrI" firstAttribute="top" secondItem="rnh-Bk-CM2" secondAttribute="bottom" id="1nt-Uf-PGQ"/>
+                        <constraint firstAttribute="trailing" secondItem="0q1-KL-VrI" secondAttribute="trailing" id="DMP-D3-I3E"/>
+                        <constraint firstAttribute="trailing" secondItem="rnh-Bk-CM2" secondAttribute="trailing" id="HXA-ia-Ddb"/>
+                        <constraint firstItem="TvY-3J-0zk" firstAttribute="top" secondItem="0q1-KL-VrI" secondAttribute="bottom" id="Irx-VA-k3x"/>
+                        <constraint firstItem="0q1-KL-VrI" firstAttribute="leading" secondItem="a7z-tr-fce" secondAttribute="leading" id="Qoj-6p-PvM"/>
+                        <constraint firstItem="rnh-Bk-CM2" firstAttribute="top" secondItem="a7z-tr-fce" secondAttribute="top" id="bCe-hn-87a"/>
+                        <constraint firstItem="0q1-KL-VrI" firstAttribute="top" secondItem="rnh-Bk-CM2" secondAttribute="bottom" id="tdW-xP-cJd"/>
+                        <constraint firstItem="rnh-Bk-CM2" firstAttribute="leading" secondItem="a7z-tr-fce" secondAttribute="leading" id="uxi-ci-M90"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="a7z-tr-fce" secondAttribute="bottom" id="FCh-ib-w0n"/>
+                <constraint firstItem="a7z-tr-fce" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rme-2z-BMh"/>
+                <constraint firstItem="a7z-tr-fce" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nM4-uB-7Ig"/>
+                <constraint firstAttribute="trailing" secondItem="a7z-tr-fce" secondAttribute="trailing" id="rTy-9b-ENW"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="734.5" y="567.5"/>
+        </view>
+    </objects>
+</document>
