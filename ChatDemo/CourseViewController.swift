@@ -58,6 +58,8 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        self.navigationController?.navigationBar.tintColor = UIColor(hex: "007aff")
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         synth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
     }
     
@@ -80,13 +82,13 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.viText.font = UIFont.systemFontOfSize(16)
         
         cell.usButton.tag = indexPath.row
-        cell.usButton.addTarget(self, action: "usVoice:", forControlEvents: .TouchUpInside)
+        cell.usButton.addTarget(self, action: #selector(CourseViewController.usVoice(_:)), forControlEvents: .TouchUpInside)
         
         cell.ukButton.tag = indexPath.row
-        cell.ukButton.addTarget(self, action: "ukVoice:", forControlEvents: .TouchUpInside)
+        cell.ukButton.addTarget(self, action: #selector(CourseViewController.ukVoice(_:)), forControlEvents: .TouchUpInside)
         
         cell.copyButton.tag = indexPath.row
-        cell.copyButton.addTarget(self, action: "copySen:", forControlEvents: .TouchUpInside)
+        cell.copyButton.addTarget(self, action: #selector(CourseViewController.copySen(_:)), forControlEvents: .TouchUpInside)
         
         return cell
     }

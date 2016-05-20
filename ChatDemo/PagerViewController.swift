@@ -19,7 +19,7 @@ class PagerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.translucent = false
+        /*self.navigationController?.navigationBar.translucent = false
         
         let tabBarController = ESTabBarController(tabIconNames: ["ic_chat_24dp_gray",
                                                                  "ic_sample_sentence_24dp_gray",
@@ -44,7 +44,7 @@ class PagerViewController: UIViewController {
         tabBarController.setViewController(translateview, atIndex: 2)
         
         tabBarController.selectedColor = UIColor(hex: "FFFFFF")
-        tabBarController.buttonsBackgroundColor = UIColor(hex: "1E88E5")
+        tabBarController.buttonsBackgroundColor = UIColor(hex: "1E88E5")*/
     }
 
     override func didReceiveMemoryWarning() {

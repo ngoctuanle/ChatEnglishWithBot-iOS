@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A467DC887FB259775E6BDEC /* Pods_ChatDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C5C205A465BDAC2A8CED57 /* Pods_ChatDemo.framework */; };
 		BD22E0E11C35790800506019 /* PageIntroItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22E0E01C35790800506019 /* PageIntroItemViewController.swift */; };
 		BD22E0E31C35792C00506019 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22E0E21C35792C00506019 /* IntroViewController.swift */; };
 		BD270D361C3A467F0034E080 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD270D351C3A467F0034E080 /* LanguageViewController.swift */; };
+		BD2F68D21C97081600A615A5 /* KHTabPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F68CF1C97081600A615A5 /* KHTabPagerViewController.m */; };
+		BD2F68D31C97081600A615A5 /* KHTabScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F68D11C97081600A615A5 /* KHTabScrollView.m */; };
+		BD2F68D51C9708BE00A615A5 /* TabPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2F68D41C9708BE00A615A5 /* TabPagerViewController.swift */; };
 		BD3A00D41C1FCD3800A68CC5 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3A00B71C1FCD3800A68CC5 /* 1.png */; };
 		BD3A00D51C1FCD3800A68CC5 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3A00B81C1FCD3800A68CC5 /* 10.png */; };
 		BD3A00D61C1FCD3800A68CC5 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = BD3A00B91C1FCD3800A68CC5 /* 11.png */; };
@@ -61,6 +65,7 @@
 		BD8777961C18154E002DCB57 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8777951C18154E002DCB57 /* HeaderView.xib */; };
 		BD8777981C18169F002DCB57 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8777971C18169F002DCB57 /* HeaderView.swift */; };
 		BD87779A1C1817DF002DCB57 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8777991C1817DF002DCB57 /* UIView.swift */; };
+		BD9B15A61C4F279D002979D7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9B15A51C4F279D002979D7 /* MBProgressHUD.m */; };
 		BDD57A891C0A9D98000FA2EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD57A881C0A9D98000FA2EA /* AppDelegate.swift */; };
 		BDD57A8E1C0A9D98000FA2EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD57A8C1C0A9D98000FA2EA /* Main.storyboard */; };
 		BDD57A901C0A9D98000FA2EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD57A8F1C0A9D98000FA2EA /* Assets.xcassets */; };
@@ -98,7 +103,6 @@
 		BDF020101C0C7539001418E9 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF0200F1C0C7539001418E9 /* CourseViewController.swift */; };
 		BDF020121C0C754C001418E9 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF020111C0C754C001418E9 /* CourseTableViewCell.swift */; };
 		E7FA162A3132054214E6E543 /* libPods-ChatDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67FA04D10566242FE03503AE /* libPods-ChatDemoTests.a */; };
-		EC5B3A6D7FD54B6B662CCEFA /* libPods-ChatDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EB816CAB9F4160E64B5D6D /* libPods-ChatDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,13 +123,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08EB816CAB9F4160E64B5D6D /* libPods-ChatDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FD6C92BC9FBA40BB2C279E /* Pods-ChatDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDemo/Pods-ChatDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		67FA04D10566242FE03503AE /* libPods-ChatDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DC59981CE0DA4FABD22C27 /* Pods-ChatDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDemoTests/Pods-ChatDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD22E0E01C35790800506019 /* PageIntroItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIntroItemViewController.swift; sourceTree = "<group>"; };
 		BD22E0E21C35792C00506019 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		BD270D351C3A467F0034E080 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		BD2F68CE1C97081600A615A5 /* KHTabPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHTabPagerViewController.h; sourceTree = "<group>"; };
+		BD2F68CF1C97081600A615A5 /* KHTabPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHTabPagerViewController.m; sourceTree = "<group>"; };
+		BD2F68D01C97081600A615A5 /* KHTabScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHTabScrollView.h; sourceTree = "<group>"; };
+		BD2F68D11C97081600A615A5 /* KHTabScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHTabScrollView.m; sourceTree = "<group>"; };
+		BD2F68D41C9708BE00A615A5 /* TabPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPagerViewController.swift; sourceTree = "<group>"; };
 		BD3A00B71C1FCD3800A68CC5 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		BD3A00B81C1FCD3800A68CC5 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		BD3A00B91C1FCD3800A68CC5 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
@@ -178,6 +186,8 @@
 		BD8777951C18154E002DCB57 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		BD8777971C18169F002DCB57 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BD8777991C1817DF002DCB57 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		BD9B15A41C4F279D002979D7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		BD9B15A51C4F279D002979D7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BDD57A851C0A9D98000FA2EA /* ChatDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD57A881C0A9D98000FA2EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD57A8D1C0A9D98000FA2EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -222,6 +232,7 @@
 		BDF0200A1C0C7314001418E9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		BDF0200F1C0C7539001418E9 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		BDF020111C0C754C001418E9 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
+		C3C5C205A465BDAC2A8CED57 /* Pods_ChatDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A1BB4296D90271906B5152 /* Pods-ChatDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDemoTests/Pods-ChatDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF6EE4AB02E16A4E88EFFE11 /* Pods-ChatDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDemo/Pods-ChatDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,7 +257,7 @@
 				BD72704A1C0D7F5C004492E1 /* StoreKit.framework in Frameworks */,
 				BD7270481C0D7F55004492E1 /* SystemConfiguration.framework in Frameworks */,
 				BDF0200B1C0C7314001418E9 /* libsqlite3.tbd in Frameworks */,
-				EC5B3A6D7FD54B6B662CCEFA /* libPods-ChatDemo.a in Frameworks */,
+				1A467DC887FB259775E6BDEC /* Pods_ChatDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				67FA04D10566242FE03503AE /* libPods-ChatDemoTests.a */,
-				08EB816CAB9F4160E64B5D6D /* libPods-ChatDemo.a */,
+				C3C5C205A465BDAC2A8CED57 /* Pods_ChatDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -288,6 +299,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BD1EAA281C5D11B90080C5CC /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				BDE735711C1183EE003E5491 /* FBSDKCoreKit.framework */,
+				BDE735721C1183EE003E5491 /* FBSDKLoginKit.framework */,
+				BDE735731C1183EE003E5491 /* FBSDKShareKit.framework */,
+				BD72705B1C0D7F8C004492E1 /* AdSupport.framework */,
+				BD7270591C0D7F86004492E1 /* AudioToolbox.framework */,
+				BD7270571C0D7F80004492E1 /* AVFoundation.framework */,
+				BD7270551C0D7F7B004492E1 /* CoreGraphics.framework */,
+				BD7270531C0D7F74004492E1 /* CoreMedia.framework */,
+				BD7270511C0D7F6E004492E1 /* CoreTelephony.framework */,
+				BD72704D1C0D7F67004492E1 /* EventKit.framework */,
+				BD72704E1C0D7F67004492E1 /* EventKitUI.framework */,
+				BD72704B1C0D7F62004492E1 /* MessageUI.framework */,
+				BD7270491C0D7F5C004492E1 /* StoreKit.framework */,
+				BD7270471C0D7F55004492E1 /* SystemConfiguration.framework */,
+				BDF0200A1C0C7314001418E9 /* libsqlite3.tbd */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		BD22E0DF1C3578EE00506019 /* IntroView */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +329,17 @@
 				BD270D351C3A467F0034E080 /* LanguageViewController.swift */,
 			);
 			name = IntroView;
+			sourceTree = "<group>";
+		};
+		BD2F68CD1C97081600A615A5 /* KHTabPagerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD2F68CE1C97081600A615A5 /* KHTabPagerViewController.h */,
+				BD2F68CF1C97081600A615A5 /* KHTabPagerViewController.m */,
+				BD2F68D01C97081600A615A5 /* KHTabScrollView.h */,
+				BD2F68D11C97081600A615A5 /* KHTabScrollView.m */,
+			);
+			path = KHTabPagerViewController;
 			sourceTree = "<group>";
 		};
 		BD3A00B61C1FCD3800A68CC5 /* image */ = {
@@ -341,6 +385,7 @@
 				BD54251B1C1E6D160041C66C /* HomeTableViewCell.swift */,
 				BD54251D1C1E706E0041C66C /* ChatViewController.swift */,
 				BDD659601C226FFA00E66EFB /* PagerViewController.swift */,
+				BD2F68D41C9708BE00A615A5 /* TabPagerViewController.swift */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -378,24 +423,19 @@
 			name = HeaderView;
 			sourceTree = "<group>";
 		};
+		BD9B15A71C4F27A8002979D7 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BD9B15A41C4F279D002979D7 /* MBProgressHUD.h */,
+				BD9B15A51C4F279D002979D7 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		BDD57A7C1C0A9D98000FA2EA = {
 			isa = PBXGroup;
 			children = (
-				BDE735711C1183EE003E5491 /* FBSDKCoreKit.framework */,
-				BDE735721C1183EE003E5491 /* FBSDKLoginKit.framework */,
-				BDE735731C1183EE003E5491 /* FBSDKShareKit.framework */,
-				BD72705B1C0D7F8C004492E1 /* AdSupport.framework */,
-				BD7270591C0D7F86004492E1 /* AudioToolbox.framework */,
-				BD7270571C0D7F80004492E1 /* AVFoundation.framework */,
-				BD7270551C0D7F7B004492E1 /* CoreGraphics.framework */,
-				BD7270531C0D7F74004492E1 /* CoreMedia.framework */,
-				BD7270511C0D7F6E004492E1 /* CoreTelephony.framework */,
-				BD72704D1C0D7F67004492E1 /* EventKit.framework */,
-				BD72704E1C0D7F67004492E1 /* EventKitUI.framework */,
-				BD72704B1C0D7F62004492E1 /* MessageUI.framework */,
-				BD7270491C0D7F5C004492E1 /* StoreKit.framework */,
-				BD7270471C0D7F55004492E1 /* SystemConfiguration.framework */,
-				BDF0200A1C0C7314001418E9 /* libsqlite3.tbd */,
+				BD1EAA281C5D11B90080C5CC /* Framework */,
 				BDD57A871C0A9D98000FA2EA /* ChatDemo */,
 				BDD57A9C1C0A9D98000FA2EA /* ChatDemoTests */,
 				BDD57AA71C0A9D98000FA2EA /* ChatDemoUITests */,
@@ -418,10 +458,12 @@
 		BDD57A871C0A9D98000FA2EA /* ChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BD9B15A71C4F27A8002979D7 /* MBProgressHUD */,
 				BDEB00611C32856300F8FB68 /* KCFloatingActionButton */,
 				BD3A00B61C1FCD3800A68CC5 /* image */,
 				BD72703B1C0D7DFA004492E1 /* Toast */,
 				BDD57AB61C0AA477000FA2EA /* SlideMenu */,
+				BD2F68CD1C97081600A615A5 /* KHTabPagerViewController */,
 				BDD57A881C0A9D98000FA2EA /* AppDelegate.swift */,
 				BDF020061C0C5973001418E9 /* ChatDemo-Bridging-Header.h */,
 				BDF020091C0C5DAB001418E9 /* comsentences.sqlite */,
@@ -811,19 +853,23 @@
 				BD8777981C18169F002DCB57 /* HeaderView.swift in Sources */,
 				BDD57ABE1C0AA4DF000FA2EA /* String.swift in Sources */,
 				BDF020101C0C7539001418E9 /* CourseViewController.swift in Sources */,
+				BD2F68D31C97081600A615A5 /* KHTabScrollView.m in Sources */,
 				BDD57AD31C0B00F1000FA2EA /* ExSlideMenuController.swift in Sources */,
 				BDD57A891C0A9D98000FA2EA /* AppDelegate.swift in Sources */,
 				BDD57ACA1C0AB0E3000FA2EA /* SentencesViewController.swift in Sources */,
+				BD2F68D51C9708BE00A615A5 /* TabPagerViewController.swift in Sources */,
 				BD7270451C0D7DFA004492E1 /* ToastAppearance.swift in Sources */,
 				BD7270431C0D7DFA004492E1 /* KeyboardObserver.swift in Sources */,
 				BDD57AC01C0AA548000FA2EA /* UIColor.swift in Sources */,
 				BD54251E1C1E706E0041C66C /* ChatViewController.swift in Sources */,
+				BD2F68D21C97081600A615A5 /* KHTabPagerViewController.m in Sources */,
 				BDEB00681C32856300F8FB68 /* KCFABViewController.swift in Sources */,
 				BD22E0E31C35792C00506019 /* IntroViewController.swift in Sources */,
 				BDD57ACC1C0AB0F1000FA2EA /* TranslateViewController.swift in Sources */,
 				BDD57AC81C0AB0D2000FA2EA /* MainViewController.swift in Sources */,
 				BDEB00691C32856300F8FB68 /* KCFABWindow.swift in Sources */,
 				BDD57AC61C0AAFE4000FA2EA /* UIViewController.swift in Sources */,
+				BD9B15A61C4F279D002979D7 /* MBProgressHUD.m in Sources */,
 				BDD57AC41C0AA600000FA2EA /* UITableView.swift in Sources */,
 				BDD57ACE1C0AB0FD000FA2EA /* SettingsViewController.swift in Sources */,
 				BDEB006B1C32856300F8FB68 /* KCFloatingActionButtonItem.swift in Sources */,

@@ -17,8 +17,8 @@ class KeyboardObserver: NSObject {
         
         let nc = NSNotificationCenter.defaultCenter()
         
-        nc.addObserver(self, selector: "keyboardDidAppear:", name: UIKeyboardDidShowNotification, object: nil)
-        nc.addObserver(self, selector: "keyboardDidDisappear:", name: UIKeyboardDidHideNotification, object: nil)
+        nc.addObserver(self, selector: #selector(KeyboardObserver.keyboardDidAppear(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        nc.addObserver(self, selector: #selector(KeyboardObserver.keyboardDidDisappear(_:)), name: UIKeyboardDidHideNotification, object: nil)
     }
     
     func keyboardDidAppear(notification: NSNotification) -> Void {

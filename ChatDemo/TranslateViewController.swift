@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import JGProgressHUD
 
 class TranslateViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var originView: UIView!
@@ -23,6 +24,8 @@ class TranslateViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var transOutput: UITextView!
     
     @IBOutlet var transButton: UIButton!
+    
+    var HUD: JGProgressHUD!
     
     @IBAction func originTap(sender: UIButton) {
         var tmp: String!
@@ -56,9 +59,17 @@ class TranslateViewController: UIViewController, UITextViewDelegate {
         self.view.endEditing(true)
         var translate = ""
         if(self.originInput.text != "enter sentences"){
-            translate = translateQuickGoogle(originInput.text, origin: originShort, target: nativeShort)
+            self.HUD.showInView(self.view, animated: true)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                translate = self.translateQuickGoogle(self.originInput.text, origin: self.originShort, target: self.nativeShort)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.transOutput.text = translate
+                    self.HUD.dismiss()
+                })
+            })
+            
         }
-        transOutput.text = translate
+        
     }
     
     var origin: String = "English"
@@ -80,6 +91,9 @@ class TranslateViewController: UIViewController, UITextViewDelegate {
         originInput.delegate = self
         originInput.text = "enter sentences"
         originInput.textColor = UIColor.lightGrayColor()
+        
+        HUD = JGProgressHUD()
+        HUD.textLabel.text = "Connecting"
     }
     
     override func didReceiveMemoryWarning() {
@@ -199,13 +213,17 @@ class TranslateViewController: UIViewController, UITextViewDelegate {
         let url = TRANSLATE_GOOGLE + LANGUAGE_TARGET + LANGUAGE_SOURCE + QUERY
         let data = NSData(contentsOfURL: NSURL(string: url)!)
         do{
-            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-            if let blogs = json["sentences"] as? [[String: AnyObject]] {
-                for blog in blogs {
-                    if let name = blog["trans"] as? String {
-                        translate += name
+            if data != nil {
+                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                if let blogs = json["sentences"] as? [[String: AnyObject]] {
+                    for blog in blogs {
+                        if let name = blog["trans"] as? String {
+                            translate += name
+                        }
                     }
                 }
+            } else {
+                print("No internet connection!")
             }
         } catch {
             print("error serializing JSON: \(error)")

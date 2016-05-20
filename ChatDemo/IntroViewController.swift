@@ -35,7 +35,7 @@ class IntroViewController: UIViewController, UIPageViewControllerDataSource, UIA
         skip.frame = CGRectMake(self.view.frame.width-100, self.view.frame.height-80, 100, 40)
         skip.setTitle("Skip", forState: UIControlState.Normal)
         skip.setTitleColor(UIColor(hex: "2196f3"), forState: UIControlState.Normal)
-        skip.addTarget(self, action: "Click", forControlEvents: UIControlEvents.TouchUpInside)
+        skip.addTarget(self, action: #selector(IntroViewController.Click), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(skip)
         
         self.pageViewController.didMoveToParentViewController(self)
@@ -95,7 +95,7 @@ class IntroViewController: UIViewController, UIPageViewControllerDataSource, UIA
             return nil
         }
         
-        index--
+        index -= 1
         return self.viewControllerAtIndex(index)
     }
     
@@ -108,7 +108,7 @@ class IntroViewController: UIViewController, UIPageViewControllerDataSource, UIA
             return nil
         }
         
-        index++
+        index += 1
         if(index == self.pageImages.count){
             self.skip.setTitle("Start", forState: UIControlState.Normal)
             return nil

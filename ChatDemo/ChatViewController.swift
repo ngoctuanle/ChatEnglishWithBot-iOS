@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import JSQMessagesViewController
 
-class ChatViewController: JSQMessagesViewController{
+class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate{
     
     var botID: String!
     var botName: String!
@@ -73,7 +74,7 @@ class ChatViewController: JSQMessagesViewController{
     }
     
     func getContentFromBot(path: String, varname: String, conteninput: String, botName: String) -> String{
-        var res = "I'm busy, please try again later."
+        var res = "I`m busy, please try again later."
         let request = NSMutableURLRequest(URL: NSURL(string: path)!)
         request.HTTPMethod = "POST"
         let postString = "botcust2=\(varname)&input=\(conteninput)"
@@ -169,7 +170,7 @@ class ChatViewController: JSQMessagesViewController{
         let result = sqlite3_exec(database, sql, nil, nil, &errmsg)
         if (result != SQLITE_OK){
             sqlite3_close(database)
-            print("Query Error")
+            print("Query Error \(errmsg)")
             return
         }
     }
@@ -235,7 +236,7 @@ extension ChatViewController {
     func saveOldMessage(){
         if(self.messages.count >= 20){
             var j = 1
-            for var i = self.messages.count - 20; i<self.messages.count; i++
+            for i in self.messages.count - 19 ..< self.messages.count
             {
                 let ID = self.messages[i].senderId
                 let name = self.messages[i].senderDisplayName
@@ -246,7 +247,7 @@ extension ChatViewController {
                 dateFormatter.timeZone = NSTimeZone(name: "UTC")
                 let dateString = dateFormatter.stringFromDate(date)
                 let query = "UPDATE main.chatLog\(self.botNum) SET senderID = '\(ID)', senderName = '\(name)', date = '\(dateString)', text = '\(text)', trans = '' WHERE rowid = \(j)"
-                j++
+                j += 1
                 let database: COpaquePointer = connectdb1("gpchat", type: "sqlite")
                 self.db_query(query, database: database)
                 sqlite3_close(database)
@@ -263,7 +264,7 @@ extension ChatViewController {
                 dateFormatter.timeZone = NSTimeZone(name: "UTC")
                 let dateString = dateFormatter.stringFromDate(date)
                 let query = "UPDATE main.chatLog\(self.botNum) SET senderID = '\(ID)', senderName = '\(name)', date = '\(dateString)', text = '\(text)', trans = '' WHERE rowid = \(i)"
-                i++
+                i += 1
                 let database: COpaquePointer = connectdb1("gpchat", type: "sqlite")
                 self.db_query(query, database: database)
                 sqlite3_close(database)
@@ -273,10 +274,11 @@ extension ChatViewController {
     
     func setup() {
         self.senderId = "User"
-        self.senderDisplayName = UIDevice.currentDevice().identifierForVendor?.UUIDString
+        self.senderDisplayName = "User"
         let settingBtn = UIButton(type: .Custom)
         settingBtn.setImage(UIImage(named: "ic_setting"), forState: .Normal)
         self.inputToolbar?.contentView?.leftBarButtonItem = settingBtn
+        
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -408,25 +410,56 @@ extension ChatViewController {
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
-        let alertController = UIAlertController(title: "Select chat method", message: "", preferredStyle: .ActionSheet)
+        /* let alertController = UIAlertController(title: "Select chat method", message: "", preferredStyle: .ActionSheet)
         let actionOk = UIAlertAction(title: "Close",style: .Cancel,handler: nil)
         let actionT2T = UIAlertAction(title: "Text to Text", style: .Default, handler: {
             Void in
             self.method = false
-            Toast.appearance.blurStyle = .Dark
-            Toast.appearance.textColor = UIColor.whiteColor()
-            Toast.makeText("Enable Text to Text", duration: Toast.LENGTH_LONG).show()
         })
         let actionT2V = UIAlertAction(title: "Text to Voice", style: .Default, handler: {
             Void in
             self.method = true
-            Toast.appearance.blurStyle = .Dark
-            Toast.appearance.textColor = UIColor.whiteColor()
-            Toast.makeText("Enable Text to Voice", duration: Toast.LENGTH_LONG).show()
         })
         alertController.addAction(actionT2T)
         alertController.addAction(actionT2V)
         alertController.addAction(actionOk)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.presentViewController(alertController, animated: true, completion: nil) */
+        self.inputToolbar?.contentView?.textView?.resignFirstResponder()
+        let sheet = UIActionSheet(title: "Select chat method", delegate: self, cancelButtonTitle: "Close", destructiveButtonTitle: nil, otherButtonTitles: "Text to Text", "Text to Voice")
+        sheet.showFromToolbar(self.inputToolbar!)
+    }
+    
+    func actionSheet(actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int) {
+        if buttonIndex == actionSheet.cancelButtonIndex {
+            self.inputToolbar?.contentView?.textView?.becomeFirstResponder()
+            return
+        }
+        switch (buttonIndex) {
+        case 1:
+            self.method = false
+            self.showHint("Enable Text to Text")
+            break
+        case 2:
+            self.method = true
+            self.showHint("Enable Text to Voice")
+            break
+        default:
+            break
+        }
+    }
+    
+    func showHint(hint: String!) {
+        let hud = MBProgressHUD(view: self.view!)
+        hud.removeFromSuperViewOnHide = true
+        self.view.addSubview(hud)
+        hud.show(true)
+        hud.userInteractionEnabled = false
+        hud.mode = MBProgressHUDMode.Text
+        hud.labelText = hint!
+        hud.labelFont = UIFont.systemFontOfSize(15)
+        hud.margin = 10
+        hud.yOffset = 0
+        hud.removeFromSuperViewOnHide = true
+        hud.hide(true, afterDelay: 2)
     }
 }

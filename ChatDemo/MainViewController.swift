@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet var tableView: UITableView!
@@ -69,7 +70,35 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let botVariableName = self.getVariablename(self.pattern, id: botID, index: indexPath.row)
             dispatch_async(dispatch_get_main_queue(), {
                 let storyBroad = UIStoryboard(name: "Main", bundle: nil)
-                let pagerview = storyBroad.instantiateViewControllerWithIdentifier("PagerView") as! PagerViewController
+                /*let pagerview = storyBroad.instantiateViewControllerWithIdentifier("PagerView") as! PagerViewController
+                if(indexPath.row == 0){
+                    pagerview.botID = "\(self.pattern)\(botID)"
+                } else if(indexPath.row == 2){
+                    pagerview.botID = "http://bandore.pandorabots.com/pandora/talk?botid=\(botID)"
+                } else {
+                    pagerview.botID = "http://demo.vhost.pandorabots.com/pandora/talk?botid=\(botID)"
+                }
+                pagerview.botVariableName = botVariableName
+                pagerview.botAvatar = self.botAvatarArr[indexPath.row]
+                pagerview.botName = self.botNameArr[indexPath.row]
+                pagerview.botNum = "\(indexPath.row)"
+                self.navigationController?.pushViewController(pagerview, animated: true)*/
+                
+                /*let pagerview = storyBroad.instantiateViewControllerWithIdentifier("ChatView") as! ChatViewController
+                if(indexPath.row == 0){
+                    pagerview.botID = "\(self.pattern)\(botID)"
+                } else if(indexPath.row == 2){
+                    pagerview.botID = "http://bandore.pandorabots.com/pandora/talk?botid=\(botID)"
+                } else {
+                    pagerview.botID = "http://demo.vhost.pandorabots.com/pandora/talk?botid=\(botID)"
+                }
+                pagerview.botVariableName = botVariableName
+                pagerview.botAvatar = self.botAvatarArr[indexPath.row]
+                pagerview.botName = self.botNameArr[indexPath.row]
+                pagerview.botNum = "\(indexPath.row)"
+                self.navigationController?.pushViewController(pagerview, animated: true)*/
+                
+                let pagerview = storyBroad.instantiateViewControllerWithIdentifier("TabPager") as! TabPagerViewController
                 if(indexPath.row == 0){
                     pagerview.botID = "\(self.pattern)\(botID)"
                 } else if(indexPath.row == 2){
@@ -82,6 +111,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 pagerview.botName = self.botNameArr[indexPath.row]
                 pagerview.botNum = "\(indexPath.row)"
                 self.navigationController?.pushViewController(pagerview, animated: true)
+                
                 self.HUD.dismiss()
             })
         })

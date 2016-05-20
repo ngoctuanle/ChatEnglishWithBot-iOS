@@ -22,6 +22,35 @@ protocol SlideMenuProtocol: class {
 }
 
 class SlideMenuViewController: UIViewController, SlideMenuProtocol, UITableViewDelegate, UITableViewDataSource{
+    @IBAction func didTouch(sender: UIButton) {
+        let login = FBSDKLoginManager()
+        if(FBSDKAccessToken.currentAccessToken() == nil){
+            login.logInWithReadPermissions(["public_profile"], fromViewController: self, handler: {
+                (result : FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
+                if(error != nil){
+                    print(error.localizedDescription)
+                } else if (result.isCancelled){
+                    print("Cancel")
+                } else {
+                    print("Logged in...")
+                }
+            })
+        } else {
+            let alertController = UIAlertController(title: "", message: "Logged as \(FBSDKProfile.currentProfile().name)", preferredStyle: .ActionSheet)
+            let actionOk = UIAlertAction(title: "Close",style: .Cancel,handler: nil)
+            let actionLogout = UIAlertAction(title: "Logout", style: .Destructive, handler: {
+                Void in
+                login.logOut()
+                self.nameLabel.text = "Login"
+                print("Logout...")
+            })
+            alertController.addAction(actionLogout)
+            alertController.addAction(actionOk)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var pro5pic: FBSDKProfilePictureView!
 
     @IBOutlet weak var tableView: UITableView!
     var headerView: HeaderView!
@@ -39,6 +68,12 @@ class SlideMenuViewController: UIViewController, SlideMenuProtocol, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.pro5pic.layer.cornerRadius = 40
+        self.pro5pic.clipsToBounds = true
+        self.pro5pic.layer.borderWidth = 1
+        self.pro5pic.layer.borderColor = UIColor.whiteColor().CGColor
+        
         let storyBroad = UIStoryboard(name: "Main", bundle: nil)
         let sentencesViewController = storyBroad.instantiateViewControllerWithIdentifier("SentencesView") as! SentencesViewController
         self.sentencesViewController = UINavigationController(rootViewController: sentencesViewController)
@@ -52,14 +87,14 @@ class SlideMenuViewController: UIViewController, SlideMenuProtocol, UITableViewD
         self.tableView.delegate = self
         
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "observeProfileChange:", name: FBSDKProfileDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "observeTokenChange:", name: FBSDKAccessTokenDidChangeNotification, object: nil)
-        self.headerView = HeaderView.loadNib()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SlideMenuViewController.observeProfileChange(_:)), name: FBSDKProfileDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SlideMenuViewController.observeTokenChange(_:)), name: FBSDKAccessTokenDidChangeNotification, object: nil)
+        //self.headerView = HeaderView.loadNib()
         if(FBSDKAccessToken.currentAccessToken() != nil){
             self.observeProfileChange(nil)
         }
-        self.headerView.btnLogin.addTarget(self, action: "loginClicked:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(self.headerView)
+        //self.headerView.btnLogin.addTarget(self, action: "loginClicked:", forControlEvents: .TouchUpInside)
+        //self.view.addSubview(self.headerView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,7 +133,7 @@ class SlideMenuViewController: UIViewController, SlideMenuProtocol, UITableViewD
         return cell
     }
     
-    @IBAction func loginClicked(sender: UIButton){
+    /* func loginClicked(sender: UIButton){
         let login = FBSDKLoginManager()
         if(FBSDKAccessToken.currentAccessToken() == nil){
             login.logInWithReadPermissions(["public_profile"], fromViewController: self, handler: {
@@ -124,17 +159,17 @@ class SlideMenuViewController: UIViewController, SlideMenuProtocol, UITableViewD
             alertController.addAction(actionOk)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-    }
+    } */
     
     func observeProfileChange(notfication: NSNotification!) {
         if(FBSDKProfile.currentProfile() != nil){
-            self.headerView.nameLabel.text = "\(FBSDKProfile.currentProfile().name)"
+            nameLabel.text = "\(FBSDKProfile.currentProfile().name)"
         }
     }
     
     func observeTokenChange(notfication: NSNotification!) {
         if(FBSDKAccessToken.currentAccessToken() == nil){
-            self.headerView.nameLabel.text = ""
+            nameLabel.text = "Login"
         }else {
             self.observeProfileChange(nil)
         }
